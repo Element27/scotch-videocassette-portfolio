@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+
+@font-face {
+  font-family: "sublima-xb";
+  src: local("Sublima-ExtraBold"),
+    url("./fonts/Sublima-ExtraBold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "sublima-xbi";
+  src: local("Sublima-ExtraBoldItalic"),
+    url("./fonts/Sublima-ExtraBoldItalic.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "sublima-xl";
+  src: local("Sublima-ExtraLight"),
+    url("./fonts/Sublima-ExtraLight.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "sublima-xli";
+  src: local("Sublima-ExtraLightItalic"),
+    url("./fonts/Sublima-ExtraLightItalic.otf") format("truetype");
+}
+@tailwind utilities;
