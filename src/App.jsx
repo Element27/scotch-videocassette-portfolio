@@ -76,14 +76,7 @@ function App() {
         }}>
 
 
-        <HoverTitleComponent CompHoverState={hoverState.about} hoverColor={"#0150AC"}
-          hoverTitle={"Blue"} />
-        {/* <HoverTitleComponent CompHoverState={hoverState.box2} hoverColor={"#008E38"}
-          hoverTitle={"Green"} /> */}
-        <HoverTitleComponent CompHoverState={hoverState.experience} hoverColor={"#FFE639"}
-          hoverTitle={"Yellow"} />
-        <HoverTitleComponent CompHoverState={hoverState.home} hoverColor={"#FF4E3E"}
-          hoverTitle={"Red"} />
+
 
         <div className="relative w-full h-full bg-white rotate-45">
 
