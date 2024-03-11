@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useEffect } from "react"
 
 import BoxComponent from "./Components/BoxComponent";
-import HoverTitleComponent from "./Components/HoverTitleComponent";
+// import HoverTitleComponent from "./Components/HoverTitleComponent";
 import { AboutIcon, ExperienceIcon, HomeIcon } from "./Components/IconComponents";
 import PageLayout from "./Components/PageLayout";
 // import ModalComponent from "./Components/ModalComponent";
@@ -17,7 +17,7 @@ function App() {
 
   const divRef = useRef(null);
 
-  const [hoverState, setHoverState] = useState({ about: false, experience: false, home: false });
+  // const [hoverState, setHoverState] = useState({ about: false, experience: false, home: false });
   const [pinState, setPinState] = useState({ about: false, experience: false, home: true });
   // const [hoverBGColor, setHoverBGColor] = useState(null)
   // const [hoverTitle, setHoverTitle] = useState(null)
@@ -40,14 +40,14 @@ function App() {
   return (
     <div className="relative w-screen h-screen bg-black overflow-hidden ">
       <div className="w-full h-screen relative">
-        <PageLayout pin={pinState.home} color="#0156FF" heading="Home" subHeading="This is home">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate minima soluta quia mollitia accusantium in accusamus, tempore veritatis enim doloremque labore eius, numquam tenetur, nihil dignissimos odit. Sunt, iste.</p>
+        <PageLayout pin={pinState.home} color="#0156FF" heading="Daniel Olamilekan" subHeading="Frontend Developer">
+
         </PageLayout>
         <PageLayout pin={pinState.experience} color="#0156FF" heading="Experience" subHeading="This is experience">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate minima soluta quia mollitia accusantium in accusamus, tempore veritatis enim doloremque labore eius, numquam tenetur, nihil dignissimos odit. Sunt, iste.</p>
+
         </PageLayout>
         <PageLayout pin={pinState.about} color="#0156FF" heading="About" subHeading="This is about">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate minima soluta quia mollitia accusantium in accusamus, tempore veritatis enim doloremque labore eius, numquam tenetur, nihil dignissimos odit. Sunt, iste.</p>
+
         </PageLayout>
       </div>
       {/* <div className={`p-6 absolute shadow-md duration-1000 delay-300 ${pinState.home ? "opacity-100 skew-y-0 w-full h-full " : "opacity-0 -translate-y-[300%]   skew-y-[20deg] w-0 h-0"} `}>
@@ -85,10 +85,10 @@ function App() {
               color="#0150AC"
               id="about"
               onMouseEnter={() => {
-                setHoverState({ about: true, experience: false, home: false });
+                // setHoverState({ about: true, experience: false, home: false });
               }}
               onMouseLeave={() => {
-                setHoverState({ about: false, experience: false, home: false });
+                // setHoverState({ about: false, experience: false, home: false });
               }}
               onClick={() => setPinState({ about: !pinState.about, experience: false, home: false })}
               pin={pinState.about}
@@ -116,10 +116,10 @@ function App() {
               color="#FFE639"
               id={"experience"}
               onMouseEnter={() => {
-                setHoverState({ about: false, experience: true, home: false });
+                // setHoverState({ about: false, experience: true, home: false });
               }}
               onMouseLeave={() => {
-                setHoverState({ about: false, experience: false, home: false });
+                // setHoverState({ about: false, experience: false, home: false });
               }}
               onClick={() => setPinState({ about: false, experience: !pinState.experience, home: false })}
               pin={pinState.experience}
@@ -133,10 +133,10 @@ function App() {
               color="#FF4E3E"
               id={"home"}
               onMouseEnter={() => {
-                setHoverState({ about: false, experience: false, home: true });
+                // setHoverState({ about: false, experience: false, home: true });
               }}
               onMouseLeave={() => {
-                setHoverState({ about: false, experience: false, home: false });
+                // setHoverState({ about: false, experience: false, home: false });
               }}
               onClick={() => setPinState({ about: false, experience: false, home: !pinState.home })}
               pin={pinState.home}
