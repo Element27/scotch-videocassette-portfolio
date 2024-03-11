@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 HoverTitleComponent.propTypes = {
   hoverColor: PropTypes.string.isRequired,
   CompHoverState: PropTypes.bool.isRequired,
+  // titlePin: PropTypes.bool.isRequired,
   hoverTitle: PropTypes.string.isRequired,
 
 };

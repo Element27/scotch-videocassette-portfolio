@@ -3,6 +3,9 @@ import { useEffect } from "react"
 
 import BoxComponent from "./Components/BoxComponent";
 import HoverTitleComponent from "./Components/HoverTitleComponent";
+import { AboutIcon, ExperienceIcon, HomeIcon } from "./Components/IconComponents";
+import PageLayout from "./Components/PageLayout";
+// import ModalComponent from "./Components/ModalComponent";
 // import Triangle from "./Components/Triangle";
 
 function App() {
@@ -14,27 +17,16 @@ function App() {
 
   const divRef = useRef(null);
 
-  const [hoverState, setHoverState] = useState({ box1: false, box2: false, box3: false, box4: false });
-  const [pinState, setPinState] = useState({ box1: false, box2: false, box3: false, box4: false });
+  const [hoverState, setHoverState] = useState({ about: false, experience: false, home: false });
+  const [pinState, setPinState] = useState({ about: false, experience: false, home: true });
   // const [hoverBGColor, setHoverBGColor] = useState(null)
   // const [hoverTitle, setHoverTitle] = useState(null)
 
 
   useEffect(() => {
-    // get height and  width of screen
+    // height and  width of screen
     // const h = window.innerHeight;
     setScreenHeight(window.innerHeight);
-    // setScreenHeight(window.innerHeight > window.innerWidth ? window.innerHeight : window.innerWidth);
-    // setScreenHeight(`${h}px`);
-    // setScreenWidth(window.innerWidth);
-
-    //get the diagonal of the screen
-    // const d = Math.sqrt(Math.pow(window.innerHeight, 2) + Math.pow(window.innerWidth, 2));
-    // setScreenHeight(d);
-
-    // get the width and height of the contianerRef
-
-
   }, [])
 
   useEffect(() => {
@@ -47,10 +39,33 @@ function App() {
 
   return (
     <div className="relative w-screen h-screen bg-black overflow-hidden ">
-      <div className="p-6">
-        <h2 className="text-white font-sublima-xb text-3xl lg:text-7xl">Daniel Akinbo</h2>
-        <h2 className="text-white font-sublima-xl text-2xl lg:text-4xl">Frontend Developer</h2>
+      <div className="w-full h-screen relative">
+        <PageLayout pin={pinState.home} color="#0156FF" heading="Home" subHeading="This is home">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate minima soluta quia mollitia accusantium in accusamus, tempore veritatis enim doloremque labore eius, numquam tenetur, nihil dignissimos odit. Sunt, iste.</p>
+        </PageLayout>
+        <PageLayout pin={pinState.experience} color="#0156FF" heading="Experience" subHeading="This is experience">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate minima soluta quia mollitia accusantium in accusamus, tempore veritatis enim doloremque labore eius, numquam tenetur, nihil dignissimos odit. Sunt, iste.</p>
+        </PageLayout>
+        <PageLayout pin={pinState.about} color="#0156FF" heading="About" subHeading="This is about">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cupiditate minima soluta quia mollitia accusantium in accusamus, tempore veritatis enim doloremque labore eius, numquam tenetur, nihil dignissimos odit. Sunt, iste.</p>
+        </PageLayout>
       </div>
+      {/* <div className={`p-6 absolute shadow-md duration-1000 delay-300 ${pinState.home ? "opacity-100 skew-y-0 w-full h-full " : "opacity-0 -translate-y-[300%]   skew-y-[20deg] w-0 h-0"} `}>
+        <h2 className="text-white font-sublima-xb text-3xl lg:text-7xl">Daniel Akinbo</h2>
+        <h2 className="text-white font-sublima-xl text-2xl lg:text-4xl">This is home</h2>
+      </div> */}
+
+      {/* <div className={`p-6 absolute shadow-md duration-1000 delay-300 ${pinState.experience ? "opacity-100 skew-y-0 w-full h-full " : "opacity-0 -translate-y-[300%]   skew-y-[20deg] w-0 h-0"} `}>
+        <h2 className="text-white font-sublima-xb text-3xl lg:text-7xl">Experience</h2>
+        <h2 className="text-white font-sublima-xl text-2xl lg:text-4xl">This is experience</h2>
+      </div>
+
+      <div className={`p-6 absolute shadow-md duration-1000 delay-300 ${pinState.about ? "opacity-100 skew-y-0 w-full h-full " : "opacity-0 -translate-y-[300%]   skew-y-[20deg] w-0 h-0"} `}>
+        <h2 className="text-white font-sublima-xb text-3xl lg:text-7xl">About</h2>
+        <h2 className="text-white font-sublima-xl text-2xl lg:text-4xl">This is about</h2>
+      </div> */}
+
+      {/* <ModalComponent /> */}
 
       <div ref={divRef} className="absolute "
         style={{
@@ -60,95 +75,80 @@ function App() {
           right: `${-divWidth / 2}px`,
         }}>
 
-        {/* {hoverState && */}
-        {/* <div className={`absolute shadow-md duration-300 delay-300 text-sm p-4 rounded-md -rotate-45  left-8 top-28  ${hoverState ? "opacity-100 -translate-y-[150%] skew-y-0 " : "opacity-0 -translate-y-[300%]   skew-y-[20deg] "}`} style={{ backgroundColor: hoverBGColor }}> */}
-        {/* <div className="absolute -translate-y-[150%] duration-500 skew-y-0 shadow-md text-sm p-4 rounded-md -rotate-45  left-8 top-28" style={{ backgroundColor: hoverBGColor }}> */}
-        {/* <p className="text-white ">{hoverTitle}</p> */}
-        {/* </div> */}
-        {/* } */}
-        <HoverTitleComponent CompHoverState={hoverState.box1} hoverColor={"#0150AC"}
+
+        <HoverTitleComponent CompHoverState={hoverState.about} hoverColor={"#0150AC"}
           hoverTitle={"Blue"} />
-        <HoverTitleComponent CompHoverState={hoverState.box2} hoverColor={"#008E38"}
-          hoverTitle={"Green"} />
-        <HoverTitleComponent CompHoverState={hoverState.box3} hoverColor={"#FFE639"}
+        {/* <HoverTitleComponent CompHoverState={hoverState.box2} hoverColor={"#008E38"}
+          hoverTitle={"Green"} /> */}
+        <HoverTitleComponent CompHoverState={hoverState.experience} hoverColor={"#FFE639"}
           hoverTitle={"Yellow"} />
-        <HoverTitleComponent CompHoverState={hoverState.box4} hoverColor={"#FF4E3E"}
+        <HoverTitleComponent CompHoverState={hoverState.home} hoverColor={"#FF4E3E"}
           hoverTitle={"Red"} />
 
         <div className="relative w-full h-full bg-white rotate-45">
 
-          <div className=" w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0150AC] -rotate-90 " >
+          <div className={`w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${pinState.about ? "bg-black" : "bg-[#0150AC]"} -rotate-90 `} >
             <BoxComponent
               color="#0150AC"
-              id="box1"
+              id="about"
               onMouseEnter={() => {
-                setHoverState({ box1: true, box2: false, box3: false, box4: false });
-                // setHoverTitle("Blue");
-                // setHoverBGColor("#0150AC")
+                setHoverState({ about: true, experience: false, home: false });
               }}
               onMouseLeave={() => {
-                setHoverState({ box1: false, box2: false, box3: false, box4: false });
-                // setHoverTitle(null);
-                // setHoverBGColor(null)
+                setHoverState({ about: false, experience: false, home: false });
               }}
-              onClick={() => setPinState({ box1: !pinState.box1, box2: false, box3: false, box4: false })}
-              pin={pinState.box1}
+              onClick={() => setPinState({ about: !pinState.about, experience: false, home: false })}
+              pin={pinState.about}
+              icon={<AboutIcon />}
+              title="About"
             />
           </div>
 
-          <div className=" w-3/4 h-3/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#008E38] -rotate-90">
+          {/* <div className=" w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#008E38] -rotate-90">
             <BoxComponent
               color="#008E38"
               id="box2"
               onMouseEnter={() => {
-                setHoverState({ box1: false, box2: true, box3: false, box4: false });
-                // setHoverTitle("Green");
-                // setHoverBGColor("#008E38")
+                setHoverState({ about: false, box2: true, experience: false, home: false });
               }}
               onMouseLeave={() => {
-                setHoverState({ box1: false, box2: false, box3: false, box4: false });
-                // setHoverTitle(null);
-                // setHoverBGColor(null)
+                setHoverState({ about: false, experience: false, home: false });
               }}
-              onClick={() => setPinState({ box1: false, box2: !pinState.box2, box3: false, box4: false })}
+              onClick={() => setPinState({ about: false, box2: !pinState.box2, experience: false, home: false })}
               pin={pinState.box2}
             />
-          </div>
-          <div className=" w-2/4 h-2/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FFE639] -rotate-90">
+          </div> */}
+          <div className={` w-2/3 h-2/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${pinState.experience ? "bg-black" : "bg-[#FFE639]"} -rotate-90`}>
             <BoxComponent
               color="#FFE639"
-              id={"box3"}
+              id={"experience"}
               onMouseEnter={() => {
-                setHoverState({ box1: false, box2: false, box3: true, box4: false });
-                // setHoverTitle("Yellow");
-                // setHoverBGColor("#FFE639")
+                setHoverState({ about: false, experience: true, home: false });
               }}
               onMouseLeave={() => {
-                setHoverState({ box1: false, box2: false, box3: false, box4: false });
-                // setHoverTitle(null);
-                // setHoverBGColor(null)
+                setHoverState({ about: false, experience: false, home: false });
               }}
-              onClick={() => setPinState({ box1: false, box2: false, box3: !pinState.box3, box4: false })}
-              pin={pinState.box3}
+              onClick={() => setPinState({ about: false, experience: !pinState.experience, home: false })}
+              pin={pinState.experience}
+              icon={<ExperienceIcon />}
+              title="Experience"
             />
           </div>
 
-          <div className=" w-1/4 h-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FF4E3E] -rotate-90" >
+          <div className={` w-1/3 h-1/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${pinState.home ? "bg-black" : "bg-[#FF4E3E]"} -rotate-90`} >
             <BoxComponent
               color="#FF4E3E"
-              id={"box4"}
+              id={"home"}
               onMouseEnter={() => {
-                setHoverState({ box1: false, box2: false, box3: false, box4: true });
-                // setHoverTitle("Red");
-                // setHoverBGColor("#FF4E3E")
+                setHoverState({ about: false, experience: false, home: true });
               }}
               onMouseLeave={() => {
-                setHoverState({ box1: false, box2: false, box3: false, box4: false });
-                // setHoverTitle(null);
-                // setHoverBGColor(null)
+                setHoverState({ about: false, experience: false, home: false });
               }}
-              onClick={() => setPinState({ box1: false, box2: false, box3: false, box4: !pinState.box4 })}
-              pin={pinState.box4}
+              onClick={() => setPinState({ about: false, experience: false, home: !pinState.home })}
+              pin={pinState.home}
+              icon={<HomeIcon />}
+              title="Home"
             />
           </div>
 
